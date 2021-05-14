@@ -94,6 +94,8 @@ static const char    *dmenucmd[]   = { "dmenu_run", "-m", dmenumon, "-fn", font,
 static const char     *termcmd[]   = { "termite", NULL };
 static const char *mostusedcmd[]   = { "mostused", NULL };
 static const char     *lockcmd[]   = { "i3lock", "-c", "111111", "-e", "-f", NULL };
+static const char scratchpadname[] = "scratchpad";
+static const char *scratchpadcmd[] = { "xterm", "-t", scratchpadname, "-g", "120x34", NULL };
 static const char *brightupcmd[]   = { "/usr/bin/light", "-A", "10", NULL };
 static const char *brightdowncmd[] = { "/usr/bin/light", "-U", "10", NULL };
 
@@ -102,6 +104,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_p,       spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_v,       spawn,          {.v = mostusedcmd } },
 	{ MODKEY|ShiftMask,             XK_Return,  spawn,          {.v = termcmd } },
+	{ MODKEY,                       XK_grave,   togglescratch,  {.v = scratchpadcmd } },
 	{ MODKEY|ShiftMask,             XK_l,       spawn,          {.v = lockcmd } },
 	{ 0,                            0x1008ff02, spawn,          {.v = brightupcmd } },
 	{ 0,                            0x1008ff03, spawn,          {.v = brightdowncmd } },
