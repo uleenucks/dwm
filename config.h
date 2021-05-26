@@ -91,7 +91,7 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char    *dmenucmd[]   = { "dmenu_run", "-m", dmenumon, "-fn", font, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
-static const char     *termcmd[]   = { "termite", NULL };
+static const char     *termcmd[]   = { "alacritty", NULL };
 static const char *mostusedcmd[]   = { "mostused", NULL };
 static const char     *lockcmd[]   = { "i3lock", "-c", "111111", "-e", "-f", NULL };
 static const char scratchpadname[] = "scratchpad";
