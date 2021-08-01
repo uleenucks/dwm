@@ -35,35 +35,23 @@ static const char *tags[] = { "00", "01", "10", "11" };
 static const Rule rules[] = {
 	/* class             instance          title                        tags mask     iscentered   isfloating   monitor */
 	/* monitor 0 */
-	{ "Wine",               NULL,           NULL,                        1 << 1,       True,        True,         0 },
-	{ "Remmina",            NULL,           NULL,                        1 << 1,       False,       True,         0 },
-	{ "calibre-gui",        NULL,           NULL,                        1 << 1,       True,        True,         0 },
-	{ "VirtualBox",         NULL,           NULL,                        1 << 1,       True,        True,         0 },
-	{ "Chromium",           NULL,           NULL,                        1 << 1,       False,       False,        0 },
-	{ "Google-chrome-beta", NULL,           NULL,                        1 << 1,       False,       False,        0 },
-	{ NULL,                 "Browser",      NULL,                        1 << 1,       True,        True,         0 },
-	{ NULL,                 "dwb",          NULL,                        1 << 1,       False,       False,        0 },
-	{ "Firefox",            NULL,           NULL,                        1 << 1,       False,       False,        0 },
-	{ "KeePass2",           NULL,           "Auto-Type Entry Selection", 1 << 1,       True,        True,         0 },
-	{ "Gajim",              NULL,           NULL,                        1 << 2,       True,        True,         0 },
-	{ "KeePass2",           NULL,           NULL,                        1 << 2,       True,        True,         0 },
-	{ "Corebird",           NULL,           NULL,                        1 << 2,       True,        True,         0 },
-	{ "Spotify",            NULL,           NULL,                        1 << 2,       True,        True,         0 },
-	{ NULL,                 "libreoffice",  NULL,                        1 << 3,       False,       False,        0 },
-	{ NULL,                 "abiword",      NULL,                        1 << 3,       False,       False,        0 },
-	{ NULL,                 "gnumeric",     NULL,                        1 << 3,       False,       False,        0 },
-	{ NULL,                 "Eclipse",      NULL,                        1 << 3,       False,       False,        0 },
-	{ "Gimp",               NULL,           NULL,                        1 << 3,       False,       True,         0 },
-	{ "PacketTracer6",      NULL,           NULL,                        1 << 3,       True,        True,         0 },
+	{ "Remmina",            NULL,           NULL,                        0,            False,       True,         0 },
+	{ "calibre-gui",        NULL,           NULL,                        0,            True,        True,         0 },
+	{ "Chromium",           NULL,           NULL,                        0,            False,       False,        0 },
+	{ "Google-chrome-beta", NULL,           NULL,                        0,            False,       False,        0 },
+	{ NULL,                 "Browser",      NULL,                        0,            True,        True,         0 },
+	{ "Firefox",            NULL,           NULL,                        0,            False,       False,        0 },
+	{ "KeePass2",           NULL,           "Auto-Type Entry Selection", 0,            True,        True,         0 },
+	{ "Spotify",            NULL,           NULL,                        0,            True,        True,         0 },
+	{ NULL,                 "libreoffice",  NULL,                        0,            False,       False,        0 },
+	{ "Gimp",               NULL,           NULL,                        0,            False,       True,         0 },
 	{ "feh",                NULL,           NULL,                        0,            True,        True,        -1 },
 	{ "Sxiv",               NULL,           NULL,                        0,            True,        True,        -1 },
 	{ "mpv",                NULL,           NULL,                        0,            True,        True,        -1 },
-	{ "Wine",               NULL,           NULL,                        0,            True,        True,        -1 },
 	{ "XFontSel",           NULL,           NULL,                        0,            True,        True,        -1 },
 	{ NULL,                 "xterm",        NULL,                        0,            True,        True,        -1 },
 	{ "Zathura",            NULL,           NULL,                        0,            True,        True,        -1 },
 	{ NULL,                 NULL,           "Save file",                 0,            True,        True,        -1 },
-	{ NULL,                 NULL,           "Wicd Network Manager",      0,            True,        True,        -1 },
 };
 
 /* layout(s) */
@@ -95,8 +83,6 @@ static const char    *dmenucmd[]   = { "dmenu_run", "-m", dmenumon, "-fn", font,
 static const char     *termcmd[]   = { "alacritty", NULL };
 static const char *mostusedcmd[]   = { "mostused", NULL };
 static const char     *lockcmd[]   = { "i3lock", "-c", "111111", "-e", "-f", NULL };
-static const char scratchpadname[] = "scratchpad";
-static const char *scratchpadcmd[] = { "xterm", "-t", scratchpadname, "-g", "120x34", NULL };
 static const char *brightupcmd[]   = { "/usr/bin/light", "-A", "10", NULL };
 static const char *brightdowncmd[] = { "/usr/bin/light", "-U", "10", NULL };
 
@@ -105,7 +91,6 @@ static Key keys[] = {
 	{ MODKEY,                       XK_p,       spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_v,       spawn,          {.v = mostusedcmd } },
 	{ MODKEY|ShiftMask,             XK_Return,  spawn,          {.v = termcmd } },
-	{ MODKEY,                       XK_grave,   togglescratch,  {.v = scratchpadcmd } },
 	{ MODKEY|ShiftMask,             XK_l,       spawn,          {.v = lockcmd } },
 	{ 0,                            0x1008ff02, spawn,          {.v = brightupcmd } },
 	{ 0,                            0x1008ff03, spawn,          {.v = brightdowncmd } },
